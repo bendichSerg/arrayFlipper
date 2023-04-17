@@ -1,7 +1,11 @@
 package org.example;
 
+import org.example.arrayoperations.ArrayFlipper;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        ArrayFlipper array = new ArrayFlipper();
+        array.flip();
+        array.outArray();
     }
 }
