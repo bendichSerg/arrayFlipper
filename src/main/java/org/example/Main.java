@@ -11,8 +11,7 @@ public class Main {
         System.out.println(("Before flip array"));
         System.out.println(Arrays.toString(array));
 
-        arrayFlipper.flip(array);
         System.out.println(("After flip array"));
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(arrayFlipper.flip(array)));
     }
 }

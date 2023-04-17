@@ -15,10 +15,14 @@ class ArrayFlipperTest {
     }
 
     @Test
+    void flipNullArrayTest() {
+        assertArrayEquals(new int[0], arrayFlipper.flip(null));
+    }
+
+    @Test
     void flipTest() {
         int[] array = new int[]{1, 2, 3, 4, 5};
-        arrayFlipper.flip(array);
         int[] expected = new int[]{5, 4, 3, 2, 1};
-        assertArrayEquals(expected, array);
+        assertArrayEquals(expected, arrayFlipper.flip(array));
     }
 }

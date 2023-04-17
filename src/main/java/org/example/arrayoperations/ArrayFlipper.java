@@ -8,15 +8,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ArrayFlipper {
-    public void flip(int[] array) {
-        int len = array.length;
-        if (len != 0) {
-            int flipLen = len / 2;
-            for (int i = 0; i < flipLen; ++i) {
-                array[i] = array[i] + array[len - i - 1];
-                array[len - i - 1] = array[i] - array[len - i - 1];
-                array[i] -= array[len - i - 1];
-            }
+    public int[] flip(int[] array) {
+        if ((array == null) || (array.length == 0)) {
+            return new int[0];
         }
+        int len = array.length;
+        int flipLen = len / 2;
+        for (int i = 0; i < flipLen; ++i) {
+            array[i] = array[i] + array[len - i - 1];
+            array[len - i - 1] = array[i] - array[len - i - 1];
+            array[i] -= array[len - i - 1];
+        }
+        return array;
     }
 }
