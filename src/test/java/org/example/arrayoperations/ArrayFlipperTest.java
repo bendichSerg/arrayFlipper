@@ -10,8 +10,7 @@ class ArrayFlipperTest {
     @Test
     void flipEmptyArrayTest() {
         int[] array = new int[0];
-        arrayFlipper.flip(array);
-        assertArrayEquals(new int[0], array);
+        assertArrayEquals(new int[0], arrayFlipper.flip(array));
     }
 
     @Test
