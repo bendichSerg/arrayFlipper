@@ -9,17 +9,17 @@ public class ArrayFlipper {
     }
 
     private int[] recursionFlip(int[] array, int currentIndex) {
-        boolean flippable = isFlipping(array, currentIndex);
-        if (flippable) {
-            int tmpNum = array[array.length - currentIndex - 1];
-            array[array.length - currentIndex - 1] = array[currentIndex];
-            array[currentIndex] = tmpNum;
+        if (isNotFlipping(array, currentIndex)) {
+            return array;
         }
-        return flippable ? recursionFlip(array, ++currentIndex) : array;
+        int tmpNum = array[array.length - currentIndex - 1];
+        array[array.length - currentIndex - 1] = array[currentIndex];
+        array[currentIndex] = tmpNum;
+        return recursionFlip(array, ++currentIndex);
     }
 
-    private boolean isFlipping(int[] array, int currentIndex){
-        return currentIndex < array.length / 2;
+    private boolean isNotFlipping(int[] array, int currentIndex){
+        return currentIndex <= array.length / 2;
     }
 
 
