@@ -19,7 +19,7 @@ public class ArrayFlipper {
     }
 
     private boolean isNotFlipping(int[] array, int currentIndex){
-        return currentIndex <= array.length / 2;
+        return currentIndex > array.length / 2;
     }
 
 
