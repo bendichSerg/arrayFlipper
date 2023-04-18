@@ -9,10 +9,18 @@ public class ArrayFlipper {
     }
 
     private int[] recursionFlip(int[] array, int currentIndex) {
-        int tmpNum = array[array.length - currentIndex - 1];
-        array[array.length - currentIndex - 1] = array[currentIndex];
-        array[currentIndex] = tmpNum;
-        return currentIndex < array.length / 2 ? recursionFlip(array, ++currentIndex) : array;
+        boolean flippable = isFlipping(array, currentIndex);
+        if (flippable) {
+            int tmpNum = array[array.length - currentIndex - 1];
+            array[array.length - currentIndex - 1] = array[currentIndex];
+            array[currentIndex] = tmpNum;
+        }
+        return flippable ? recursionFlip(array, ++currentIndex) : array;
     }
+
+    private boolean isFlipping(int[] array, int currentIndex){
+        return currentIndex < array.length / 2;
+    }
+
 
 }
