@@ -1,12 +1,5 @@
 package org.example.arrayoperations;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
-@AllArgsConstructor
 public class ArrayFlipper {
     public int[] flip(int[] array) {
         if (array == null || array.length == 0) {
@@ -15,14 +8,12 @@ public class ArrayFlipper {
         return recursionFlip(array, 0);
     }
 
-    private int[] recursionFlip(int[] array, int changeNum) {
-        if (changeNum < array.length / 2) {
-            int tmpNum;
-            tmpNum = array[array.length - changeNum - 1];
-            array[array.length - changeNum - 1] = array[changeNum];
-            array[changeNum] = tmpNum;
-            changeNum++;
-            return recursionFlip(array, changeNum);
+    private int[] recursionFlip(int[] array, int currentIndex) {
+        if (currentIndex < array.length / 2) {
+            int tmpNum = array[array.length - currentIndex - 1];
+            array[array.length - currentIndex - 1] = array[currentIndex];
+            array[currentIndex] = tmpNum;
+            return recursionFlip(array, currentIndex++);
         }
         return array;
     }
